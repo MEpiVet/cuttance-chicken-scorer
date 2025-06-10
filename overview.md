@@ -110,6 +110,8 @@ const questions = {
 ## Deployment Instructions
 
 ### Netlify Deployment
+This is already done but this is what you could do for future websites/apps
+
 1. Create a free Netlify account
 2. Drag and drop the project folder to Netlify
 3. Site automatically deploys with a URL like: https://chickens-heidi.netlify.app
@@ -156,9 +158,7 @@ const questions = {
 - Gamification elements (badges, achievements)
 
 ## Resources
-- [Netlify Documentation](https://docs.netlify.com/)
 - [Basic HTML/CSS/JS Tutorial](https://www.w3schools.com/)
-- [Chicken Care Best Practices](https://www.backyardchickens.com/)
 
 ## Contact
 Created for Heidi's Science Project
