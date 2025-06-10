@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Care Assessment - How Good Is Your Chicken Husbandry?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <h1>🐔 Chicken Care Assessment 🐔</h1>
+            <h2>How Good Is Your Chicken Husbandry?</h2>
+            <p class="intro">Welcome to Heidi's Chicken Care Quiz! Answer questions about how you care for your chickens and get a score showing how well you're doing.</p>
+            <p class="intro">This quiz covers three important areas:</p>
+            <ul class="categories-list">
+                <li><strong>Housing</strong> - Where your chickens live</li>
+                <li><strong>Feed</strong> - What and how you feed them</li>
+                <li><strong>Enrichment</strong> - How you keep them happy and entertained</li>
+            </ul>
+            <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
+        </div>
 
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+                <span class="progress-text" id="progress-text">Question 1 of 12</span>
+            </div>
+            
+            <div class="category-indicator" id="category-indicator">Housing</div>
+            
+            <div class="question-container">
+                <h2 id="question-text">Question will appear here</h2>
+                <div id="options-container" class="options-container">
+                    <!-- Options will be dynamically inserted here -->
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" id="prev-btn" onclick="previousQuestion()" disabled>Previous</button>
+                <button class="nav-btn" id="next-btn" onclick="nextQuestion()" disabled>Next</button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <h1>Your Chicken Care Results!</h1>
+            
+            <div class="total-score-container">
+                <div class="score-circle" id="score-circle">
+                    <span class="score-number" id="total-score">0</span>
+                    <span class="score-label">out of 75</span>
+                </div>
+                <h2 class="rating" id="overall-rating">Good</h2>
+            </div>
+
+            <div class="category-results">
+                <div class="category-result">
+                    <h3>🏠 Housing</h3>
+                    <div class="category-score">
+                        <span id="housing-score">0</span> / 20
+                    </div>
+                    <div class="category-rating" id="housing-rating">Good</div>
+                </div>
+                
+                <div class="category-result">
+                    <h3>🌾 Feed</h3>
+                    <div class="category-score">
+                        <span id="feed-score">0</span> / 33
+                    </div>
+                    <div class="category-rating" id="feed-rating">Good</div>
+                </div>
+                
+                <div class="category-result">
+                    <h3>🎮 Enrichment</h3>
+                    <div class="category-score">
+                        <span id="enrichment-score">0</span> / 22
+                    </div>
+                    <div class="category-rating" id="enrichment-rating">Good</div>
+                </div>
+            </div>
+
+            <div class="recommendations" id="recommendations">
+                <h3>Recommendations:</h3>
+                <div id="recommendations-content"></div>
+            </div>
+
+            <div class="actions">
+                <button class="action-btn" onclick="printResults()">Print Results</button>
+                <button class="action-btn" onclick="startQuiz()">Take Quiz Again</button>
+            </div>
+
+            <div class="fun-fact">
+                <h4>Fun Chicken Fact!</h4>
+                <p id="fun-fact-text">Chickens can remember over 100 different faces of people or animals!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
