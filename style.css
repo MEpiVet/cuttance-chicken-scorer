@@ -187,6 +187,27 @@ body {
     font-weight: bold;
 }
 
+.number-input-container {
+    margin: 20px 0;
+}
+
+.number-input-container input {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    transition: border-color 0.3s ease;
+}
+
+.number-input-container input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
 .navigation {
     display: flex;
     justify-content: space-between;
