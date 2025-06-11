@@ -26,99 +26,213 @@ const SCORING_THRESHOLDS = {
     }
 };
 
-// Placeholder questions - Heidi will replace these with her actual questions
+// Survey Questions - Version 2 (simplified for easy editing)
 const QUESTIONS = {
     housing: [
         {
-            question: "How much space do your chickens have in their coop?",
+            question: "How often do you clean your coop?",
             options: [
-                { text: "More than 4 square feet per bird", points: 5 },
-                { text: "2-4 square feet per bird", points: 3 },
-                { text: "Less than 2 square feet per bird", points: 2 }
+                { text: "Daily", points: 3 },
+                { text: "Weekly", points: 3 },
+                { text: "Monthly", points: 2 },
+                { text: "Never", points: 1 }
             ]
         },
         {
-            question: "How often do you clean the chicken coop?",
+            question: "How many chickens do you have?",
+            type: "number",
+            inputId: "numChickens",
+            placeholder: "Enter number of chickens"
+        },
+        {
+            question: "What is the total floor area of your coop in square metres?",
+            type: "number",
+            inputId: "coopSize",
+            placeholder: "Enter size in m²",
+            step: "0.1"
+        },
+        {
+            question: "What type of bedding do you have?",
             options: [
-                { text: "Weekly or more often", points: 5 },
-                { text: "Every 2-3 weeks", points: 3 },
-                { text: "Monthly or less often", points: 2 }
+                { text: "Hay", points: 2 },
+                { text: "Shavings", points: 2 },
+                { text: "Nothing", points: 1 }
             ]
         },
         {
-            question: "Do your chickens have access to an outdoor run?",
+            question: "Does your coop have roosting bars?",
             options: [
-                { text: "Yes, a large secure run they can access daily", points: 5 },
-                { text: "Yes, but it's small or they have limited access", points: 3 },
-                { text: "No outdoor access", points: 2 }
+                { text: "Yes", points: 2 },
+                { text: "No", points: 1 }
             ]
         },
         {
-            question: "How is the ventilation in your chicken coop?",
+            question: "Does your coop leak?",
             options: [
-                { text: "Excellent - multiple vents, no ammonia smell", points: 5 },
-                { text: "Good - some ventilation, occasional smell", points: 3 },
-                { text: "Poor - stuffy or strong ammonia smell", points: 1 }
+                { text: "No", points: 3 },
+                { text: "Sometimes", points: 2 },
+                { text: "Yes", points: 1 }
+            ]
+        },
+        {
+            question: "What is your coop made out of?",
+            options: [
+                { text: "Wood", points: 3 },
+                { text: "Steel", points: 3 },
+                { text: "Tin", points: 2 },
+                { text: "Cardboard", points: 1 }
+            ]
+        },
+        {
+            question: "Are your chickens confined to a coop?",
+            options: [
+                { text: "No", points: 3 },
+                { text: "Partially", points: 2 },
+                { text: "Yes", points: 1 }
             ]
         }
     ],
     feed: [
         {
-            question: "What type of feed do you give your chickens?",
+            question: "How often do you feed your chickens?",
             options: [
-                { text: "High-quality layer feed appropriate for their age", points: 8 },
-                { text: "Basic chicken feed from the store", points: 5 },
-                { text: "Mostly scraps or mixed grains", points: 3 }
+                { text: "Daily", points: 3 },
+                { text: "Ad lib", points: 3 },
+                { text: "Every few days", points: 2 },
+                { text: "Weekly", points: 1 }
             ]
         },
         {
-            question: "How often do you provide fresh water?",
+            question: "How much food do you give them?",
             options: [
-                { text: "Fresh water available 24/7, changed daily", points: 8 },
-                { text: "Fresh water most of the time", points: 5 },
-                { text: "Water sometimes runs out or gets dirty", points: 3 }
+                { text: "Ad lib", points: 3 },
+                { text: "Half a bucket", points: 2 },
+                { text: "A bucket", points: 2 },
+                { text: "A handful", points: 1 }
             ]
         },
         {
-            question: "Do you provide grit for your chickens?",
+            question: "How often do you give your chickens scraps?",
             options: [
-                { text: "Yes, always available", points: 8 },
-                { text: "Sometimes", points: 5 },
-                { text: "No or don't know what grit is", points: 3 }
+                { text: "Every few days", points: 3 },
+                { text: "Daily", points: 2 },
+                { text: "Weekly", points: 2 },
+                { text: "Not often", points: 1 },
+                { text: "Never", points: 1 }
             ]
         },
         {
-            question: "Do you give your chickens treats or supplements?",
+            question: "Do your chickens have access to food from dawn until dusk?",
             options: [
-                { text: "Yes, healthy treats in moderation (vegetables, mealworms)", points: 9 },
-                { text: "Occasional treats", points: 6 },
-                { text: "No treats or too many unhealthy treats", points: 3 }
+                { text: "Yes", points: 3 },
+                { text: "Sometimes", points: 2 },
+                { text: "No", points: 1 }
+            ]
+        },
+        {
+            question: "How often do you give your chickens grit?",
+            options: [
+                { text: "Daily", points: 3 },
+                { text: "Sometimes", points: 2 },
+                { text: "Never", points: 1 }
+            ]
+        },
+        {
+            question: "Do you give your chickens a grain mix?",
+            options: [
+                { text: "No", points: 3 },
+                { text: "Sometimes", points: 2 },
+                { text: "Yes", points: 1 }
+            ]
+        },
+        {
+            question: "How many feeding spots do they have?",
+            options: [
+                { text: "5+", points: 3 },
+                { text: "3-4", points: 2 },
+                { text: "1-2", points: 1 }
+            ]
+        },
+        {
+            question: "Where do you put your feed?",
+            options: [
+                { text: "Pecking blocks", points: 3 },
+                { text: "Feeders", points: 3 },
+                { text: "On the ground", points: 1 }
+            ]
+        },
+        {
+            question: "How do your chickens get water?",
+            options: [
+                { text: "Automatic water trough", points: 3 },
+                { text: "Hand trough", points: 2 }
+            ]
+        },
+        {
+            question: "How often do you clean your water trough?",
+            options: [
+                { text: "Weekly", points: 3 },
+                { text: "Monthly", points: 2 },
+                { text: "3-4 times a year", points: 1 }
             ]
         }
     ],
     enrichment: [
         {
-            question: "What enrichment items do your chickens have?",
+            question: "Do you have nesting boxes for your chickens?",
             options: [
-                { text: "Multiple perches, dust bath area, and toys", points: 7 },
-                { text: "Some perches or a dust bath area", points: 5 },
-                { text: "No special enrichment items", points: 2 }
+                { text: "Yes", points: 3 },
+                { text: "Sometimes", points: 2 },
+                { text: "No", points: 1 }
             ]
         },
         {
-            question: "How much time do chickens spend outside the coop?",
+            question: "Do your chickens have access to a dust bath area?",
             options: [
-                { text: "Most of the day when weather permits", points: 8 },
-                { text: "A few hours a day", points: 5 },
-                { text: "Rarely or never", points: 2 }
+                { text: "Yes", points: 3 },
+                { text: "Sometimes", points: 2 },
+                { text: "No", points: 1 }
             ]
         },
         {
-            question: "Do you interact with your chickens?",
+            question: "Do you think your chickens have enough space to show their natural behaviours?",
             options: [
-                { text: "Daily - they're friendly and come when called", points: 7 },
-                { text: "Sometimes - when feeding or collecting eggs", points: 4 },
-                { text: "Rarely - they're afraid of people", points: 2 }
+                { text: "Yes", points: 3 },
+                { text: "Could be improved", points: 2 },
+                { text: "No", points: 1 },
+                { text: "I don't know", points: 1 }
+            ]
+        },
+        {
+            question: "Are there trees in your chicken area that they can access for shade/perching?",
+            options: [
+                { text: "Yes", points: 3 },
+                { text: "Sometimes", points: 2 },
+                { text: "No", points: 1 }
+            ]
+        },
+        {
+            question: "Do your chickens live with other chickens?",
+            options: [
+                { text: "Yes", points: 3 },
+                { text: "Sometimes", points: 2 },
+                { text: "No", points: 1 }
+            ]
+        },
+        {
+            question: "How often do your chickens see people?",
+            options: [
+                { text: "Daily", points: 3 },
+                { text: "Weekly", points: 2 },
+                { text: "Never", points: 1 }
+            ]
+        },
+        {
+            question: "What do you do if you have a sick chicken?",
+            options: [
+                { text: "Separate and monitor", points: 3 },
+                { text: "Check on it now and then", points: 2 },
+                { text: "Let it die", points: 1 }
             ]
         }
     ]
@@ -201,24 +315,48 @@ function displayQuestion() {
     // Display question
     document.getElementById('question-text').textContent = question.question;
     
-    // Display options
+    // Display options or input
     const optionsContainer = document.getElementById('options-container');
     optionsContainer.innerHTML = '';
     
-    question.options.forEach((option, index) => {
-        const optionDiv = document.createElement('div');
-        optionDiv.className = 'option';
-        optionDiv.textContent = option.text;
-        optionDiv.onclick = () => selectOption(index);
+    if (question.type === 'number') {
+        // Create number input
+        const inputDiv = document.createElement('div');
+        inputDiv.className = 'number-input-container';
         
-        // Check if this option was previously selected
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.id = question.inputId;
+        input.placeholder = question.placeholder;
+        if (question.step) input.step = question.step;
+        input.onchange = () => handleNumberInput(question.inputId);
+        
+        // Set previous value if exists
         const previousAnswer = answers[question.category][question.categoryIndex];
-        if (previousAnswer === index) {
-            optionDiv.classList.add('selected');
+        if (previousAnswer !== undefined) {
+            input.value = previousAnswer;
         }
         
-        optionsContainer.appendChild(optionDiv);
-    });
+        inputDiv.appendChild(input);
+        optionsContainer.appendChild(inputDiv);
+        
+    } else {
+        // Display multiple choice options
+        question.options.forEach((option, index) => {
+            const optionDiv = document.createElement('div');
+            optionDiv.className = 'option';
+            optionDiv.textContent = option.text;
+            optionDiv.onclick = () => selectOption(index);
+            
+            // Check if this option was previously selected
+            const previousAnswer = answers[question.category][question.categoryIndex];
+            if (previousAnswer === index) {
+                optionDiv.classList.add('selected');
+            }
+            
+            optionsContainer.appendChild(optionDiv);
+        });
+    }
     
     // Update navigation buttons
     document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
@@ -239,6 +377,47 @@ function selectOption(optionIndex) {
     
     // Enable next button
     document.getElementById('next-btn').disabled = false;
+}
+
+// Handle number input
+function handleNumberInput(inputId) {
+    const question = allQuestions[currentQuestionIndex];
+    const input = document.getElementById(inputId);
+    const value = parseFloat(input.value);
+    
+    if (value && value > 0) {
+        // Store the number value
+        answers[question.category][question.categoryIndex] = value;
+        
+        // Enable next button
+        document.getElementById('next-btn').disabled = false;
+    } else {
+        // Disable next button if invalid input
+        document.getElementById('next-btn').disabled = true;
+    }
+}
+
+// Calculate birds per square metre score
+function calculateBirdsPerSqMScore() {
+    const numChickens = answers.housing[1]; // Position of chicken count question
+    const coopSize = answers.housing[2]; // Position of coop size question
+    
+    if (!numChickens || !coopSize || coopSize <= 0) {
+        return 1; // Default low score if missing data
+    }
+    
+    const birdsPerSqM = numChickens / coopSize;
+    
+    // Scoring based on birds per square metre (lower density = better score)
+    if (birdsPerSqM <= 4) {
+        return 5; // Excellent density
+    } else if (birdsPerSqM <= 6) {
+        return 3; // Good density
+    } else if (birdsPerSqM <= 8) {
+        return 2; // Acceptable density
+    } else {
+        return 1; // Poor density (overcrowded)
+    }
 }
 
 // Navigate to next question
@@ -271,12 +450,22 @@ function showResults() {
     
     // Calculate category scores
     Object.keys(answers).forEach(category => {
-        answers[category].forEach((answerIndex, questionIndex) => {
-            if (answerIndex !== undefined) {
-                scores[category] += QUESTIONS[category][questionIndex].options[answerIndex].points;
+        answers[category].forEach((answer, questionIndex) => {
+            if (answer !== undefined) {
+                const question = QUESTIONS[category][questionIndex];
+                if (question.type === 'number') {
+                    // Handle number inputs - no direct scoring, will be calculated separately
+                    // Skip for now, birds per sq m will be added below
+                } else {
+                    // Handle multiple choice questions
+                    scores[category] += question.options[answer].points;
+                }
             }
         });
     });
+    
+    // Add calculated birds per square metre score to housing
+    scores.housing += calculateBirdsPerSqMScore();
     
     // Calculate total score
     const totalScore = scores.housing + scores.feed + scores.enrichment;
